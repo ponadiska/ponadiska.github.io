@@ -11,11 +11,12 @@ site/
 ├── friends.html       友情链接
 ├── contact.html       联系（留言表单）
 ├── thanks.html        留言成功后的页面
+├── 发布.bat           双击即可推送上线
 ├── css/style.css      全部样式
 ├── js/main.js         菜单 / 主题切换
 └── posts/
-    ├── _template.html      文章模板（复制它来写新文章）
-    └── 2026-08-24-hello.html  示例文章
+    ├── _template.html  文章模板（复制它来写新文章）
+    └── 随思.html      你的文章
 ```
 
 ## 本地预览
@@ -40,21 +41,33 @@ python -m http.server 8000
 
 ## 如何写一篇新文章
 
-1. 复制 `posts/_template.html`，重命名为 `posts/日期-标题.html`（例如 `posts/2026-08-25-关于天气.html`）。
+1. 复制 `posts/_template.html`，重命名为 `posts/标题.html`（例如 `posts/随思.html`）。
 2. 用文本编辑器打开，替换：
-   - `<title>` 里的「文章标题」
-   - `<h1>` 里的「文章标题」
+   - `<title>` 和 `<h1>` 里的「文章标题」
    - `<time datetime="...">` 和显示日期
-   - `<div class="post-body">` 里的正文
-3. 打开 `index.html`，在 `<ul class="post-list">` 里新增一条，指向你的新文章：
+   - `<div class="post-body">` 和 `</div>` 之间的正文
+3. 正文直接写字即可：**回车 = 换行，空一行 = 新段落**，不用管 HTML 标签。
+4. 打开 `index.html`，在 `<ul class="post-list">` 里新增一条，指向你的新文章：
 
 ```html
 <li>
-  <a class="post-link" href="posts/2026-08-25-关于天气.html">
-    <span class="post-title">关于天气</span>
-    <time class="post-date">2026-08-25</time>
+  <a class="post-link" href="posts/随思.html">
+    <span class="post-title">随思</span>
+    <time class="post-date">2026-08-24</time>
   </a>
 </li>
+```
+
+## 如何推送（发布上线）
+
+改完之后，**双击根目录里的 `发布.bat`**，它会自动提交并推送到 GitHub，一两分钟后网站就更新了。
+
+如果你想自己敲命令，等价的三条命令是：
+
+```powershell
+git add .
+git commit -m "更新内容"
+git push
 ```
 
 ## 如何配置联系表单
@@ -124,13 +137,7 @@ git push -u origin main
 2. `Source` 选择 `Deploy from a branch`，分支选 `main`，目录选 `/ (root)`，保存；
 3. 等一两分钟，你的网站就会出现在 `https://你的用户名.github.io`。
 
-之后每次改动，只需三步：
-
-```powershell
-git add .
-git commit -m "更新内容"
-git push
-```
+之后每次改动，直接**双击 `发布.bat`** 即可（等价于 `git add .` + `git commit` + `git push`）。
 
 ## 以后可以再加什么
 

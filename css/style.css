@@ -283,6 +283,7 @@ main.container {
 
 .post-body {
   font-size: 1.02rem;
+  white-space: pre-line;
 }
 
 .post-body p {
