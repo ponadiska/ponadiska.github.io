@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <title>大橘的博客</title>
+  <meta name="description" content="一个纯中文的个人小站，记录想法与生活。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-title" href="index.html">大橘的博客</a>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="切换深色/浅色主题">🌙</button>
+        <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html" class="active">首页</a>
+        <a href="about.html">关于</a>
+        <a href="friends.html">友情链接</a>
+        <a href="contact.html">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>你好，欢迎来玩 👋</h1>
+      <p>这里是我的个人小站，记录一些想法、见闻和日常。</p>
+    </section>
+
+    <section class="section">
+      <h2>最近的文章</h2>
+      <ul class="post-list">
+        <li>
+          <a class="post-link" href="posts/2026-08-24-hello.html">
+            <span class="post-title">你好，世界</span>
+            <time class="post-date">2026-08-24</time>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 大橘的博客 · 由 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> 驱动</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
